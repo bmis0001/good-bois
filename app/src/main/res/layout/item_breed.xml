@@ -29,6 +29,7 @@
             android:id="@+id/breed_name"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
+            android:padding="8dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/breed_image" />

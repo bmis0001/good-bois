@@ -19,7 +19,8 @@ android {
         versionCode 1
         versionName "1.0.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.reece.goodbois.CustomTestRunner"
     }
 
     buildTypes {
@@ -43,7 +44,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:1.4.2"
     implementation "com.google.android.material:material:1.6.1"
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
-    implementation "androidx.paging:paging-runtime:3.1.1"
     implementation "androidx.core:core-splashscreen:1.0.0-rc01"
 
     //Architecture
@@ -60,7 +60,6 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
     implementation "com.squareup.picasso:picasso:2.71828"
-    //implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
 
     //DI
@@ -74,4 +73,16 @@ dependencies {
     testImplementation "com.squareup.okhttp3:mockwebserver:4.10.0"
     androidTestImplementation "androidx.test.ext:junit:1.1.3"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+    androidTestImplementation "androidx.navigation:navigation-testing:2.4.2"
+    debugImplementation "androidx.fragment:fragment-testing:1.4.1"
+    implementation 'androidx.test.espresso:espresso-contrib:3.4.0'
+    //
+    // For Robolectric tests.
+    testImplementation 'com.google.dagger:hilt-android-testing:2.42'
+    kaptTest 'com.google.dagger:hilt-android-compiler:2.42'
+    // For instrumented tests.
+    testImplementation 'com.google.dagger:hilt-android-testing:2.42'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.42'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.42'
+
 }

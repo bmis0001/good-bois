@@ -11,9 +11,7 @@ import retrofit2.http.Query
 interface DoggieApi {
 
     @GET("/v1/breeds")
-    suspend fun getAllBreeds(
-        //@Query("limit") limit: Int, @Query("page") page: Int
-    ): Response<List<Breed>>
+    suspend fun getAllBreeds(): Response<List<Breed>>
 
     @GET("/v1/breeds/search")
     suspend fun getBreedsByName(@Query("q") q: String): Response<List<Breed>>

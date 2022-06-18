@@ -2,6 +2,7 @@ package com.reece.goodbois.adpater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.reece.goodbois.R
 import com.reece.goodbois.databinding.ItemBreedBinding
@@ -11,12 +12,13 @@ import com.squareup.picasso.Picasso
 class SearchAdapter(private val onItemClick: (breed: Breed) -> Unit) :
     RecyclerView.Adapter<SearchAdapter.BreedViewHolder>() {
 
-    private val dogBreeds = mutableListOf<Breed>()
+    private val dogsList = mutableListOf<Breed>()
 
-    internal fun updateList(allBreeds: List<Breed>) {
-        dogBreeds.clear()
-        dogBreeds.addAll(allBreeds)
-        notifyDataSetChanged()
+    internal fun updateList(newDogsList: List<Breed>) {
+        val diffResult = DiffUtil.calculateDiff(SearchAdapterDiffUtil(dogsList, newDogsList))
+        dogsList.clear()
+        dogsList.addAll(newDogsList)
+        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): BreedViewHolder {
@@ -25,11 +27,10 @@ class SearchAdapter(private val onItemClick: (breed: Breed) -> Unit) :
         return BreedViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: BreedViewHolder, position: Int) {
-        holder.bind(dogBreeds[position])
-    }
+    override fun onBindViewHolder(holder: BreedViewHolder, position: Int) =
+        holder.bind(dogsList[position])
 
-    override fun getItemCount(): Int = dogBreeds.size
+    override fun getItemCount(): Int = dogsList.size
 
     inner class BreedViewHolder(private val binding: ItemBreedBinding) :
         RecyclerView.ViewHolder(binding.root) {
