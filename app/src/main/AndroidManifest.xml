@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.reece.goodbois">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".GoodBoisApplication"
         android:allowBackup="true"

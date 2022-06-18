@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Good Bois</string>
+
+    <string name="search_doggie">Search doggie</string>
+
+    <string name="dog_age">Age: %1$s</string>
+    <string name="dog_origin">Origin: %1$s</string>
+    <string name="dog_temperament">Temperament: %1$s</string>
+    <string name="dog_bred_for">Bred For: %1$s</string>
 </resources>

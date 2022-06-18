@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/doggieSearchFragment">
 
+    <fragment
+        android:id="@+id/doggieSearchFragment"
+        android:name="com.reece.goodbois.ui.DoggieSearchFragment"
+        android:label="fragment_doggie_search"
+        tools:layout="@layout/fragment_doggie_search">
+        <action
+            android:id="@+id/action_doggieSearchFragment_to_doggieDetailFragment"
+            app:destination="@id/doggieDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/doggieDetailFragment"
+        android:name="com.reece.goodbois.ui.DoggieDetailFragment"
+        android:label="fragment_doggie_detail"
+        tools:layout="@layout/fragment_doggie_detail" />
 </navigation>
